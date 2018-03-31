@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
 	setlocale(0, "");
-	cout << "Ââåäèòå ÷èñëî: ";
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾: ";
 	int a;
 	cin >> a;
 	cout << a << " = ";
