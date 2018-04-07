@@ -1,57 +1,57 @@
-﻿#include<iostream>
+#include<iostream>
 #include <string>  
 using namespace std;
 int main()
 {
 	setlocale(0, "");
-	int s = 0;
+	int sum = 0;
 	cout << "Введите сумму в копейках:" << endl;
-	cin >> s;
+	cin >> sum;
 
 	cout << "Итого: ";
-	int r = 0, k = 0, w = 0, h = 0;
-	r = s / 100;
-	k = s % 100;
-	w = r / 10;
-	h = k / 10; 
+	int rub = 0, kop = 0, rubLastNum = 0, kopLastNum = 0;
+	rub = sum / 100;
+	kop = sum % 100;
+	rubLastNum = rub / 10;
+	kopLastNum = kop / 10;
 
 	//ОКОНЧАНИЯ
-	string oneR("ль");
-	string someR("ля");
-	string moreR("лей");
-	string oneK("йка");
-	string someK("йки");
-	string moreK("еек");
+	string oneRub("ль");
+	string fewRub("ля");
+	string lotRub("лей");
+	string oneKop("ейка");
+	string fewKop("ейки");
+	string lotKop("еек");
 
-	if (s == 0) cout << "Ничего не куплено!" << endl;
-	else if (s > 100)
+	if (sum == 0) cout << "Ничего не куплено!" << endl;
+	else if (sum > 100)
 	{
-		if (k == 0) 
+		if (kop == 0)
 		{
-			cout << r << " руб";
-			if (w == 1) cout << oneR << endl;
-			if ((w > 1) && (w < 5)) cout << someR  <<endl;
-			if (w >= 5) cout << moreR << endl;
+			cout << rub << " руб";
+			if (rubLastNum == 1) cout << oneRub << endl;
+			if ((rubLastNum > 1) && (rubLastNum < 5)) cout << fewRub << endl;
+			if ((rubLastNum >= 5) && (rubLastNum == 0)) cout << lotRub << endl;
 		}
-		else 
+		else
 		{
-			cout << r << " руб";
-			if (w == 1) cout << oneR << endl;
-			if ((w > 1) && (w < 5)) cout << someR << endl;
-			if (w >= 5) cout << moreR << endl;
-			cout << k << " коп";
-			if (h == 1) cout << oneK << endl;
-			if ((h > 1) && (w < 5)) cout << someK << endl;
-			if (h >= 5) cout << moreK << endl;
+			cout << rub << " руб";
+			if (rubLastNum == 1) cout << oneRub << endl;
+			if ((rubLastNum > 1) && (rubLastNum < 5)) cout << fewRub << endl;
+			if ((rubLastNum >= 5) && (rubLastNum == 0)) cout << lotRub << endl;
+			cout << kop << " коп";
+			if (kopLastNum == 1) cout << oneKop << endl;
+			if ((kopLastNum > 1) && (kopLastNum < 5)) cout << fewKop << endl;
+			if ((kopLastNum >= 5) && (kopLastNum == 0)) cout << lotKop << endl;
 		}
 	}
-	else if (s < 100)
+	else if (sum < 100)
 	{
-		cout << r << " руб";
-		if (w == 1) cout << oneR << endl;
-		if ((w > 1) && (w < 5)) cout << someR << endl;
-		if (w >= 5) cout << moreR << endl;
+		cout << rub << " руб";
+		if (rubLastNum == 1) cout << oneRub << endl;
+		if ((rubLastNum > 1) && (rubLastNum < 5)) cout << fewRub << endl;
+		if (rubLastNum >= 5) cout << lotRub << endl;
 	}
-		system ("pause");
-		return 0;
+	system("pause");
+	return 0;
 }
