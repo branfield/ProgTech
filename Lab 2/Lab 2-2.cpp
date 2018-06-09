@@ -1,32 +1,56 @@
-#include<iostream>
-#include<cstdlib>
-#include <time.h>
+#include <iostream>
+#include <ctime>
 using namespace std;
-int main ()
+
+int main()
 {
 	setlocale(0, "");
-	int a;
 	srand(time(0));
-	a = rand()% 1000 + 1;
-	cout << "(Загаданное число: " << a << ")" << endl;
-	int b;
-	for (int i = 1; i < 11; i++)
+	int mas[9][9];
+	int n = 9;
+
+	for (int i = 0; i < n; i++)
 	{
-		cout << " Попытка №" << i << endl;
-		cout << "Введите число: ";
-		cin >> b;
-		if (a != b)
+		for (int j = 0; j < n; j++)
 		{
-			if (a > b) cout << "Больше" << endl << "___________________" << endl << endl;
-			if (a < b) cout << "Меньше" << endl << "___________________" << endl << endl;
-			if (i == 10) cout << endl << "Вы не отгадали число! Попробуйте в другой раз." << endl << "Загаданное число: " << a << endl;
-		}
-		else if (a == b)
-		{
-			cout << endl << "Вы отгадали число! Браво! Вы угадали число с " << i << " - ой попытки" << endl;
-			break;
+			mas[i][j] = rand() % 70 - 35;
 		}
 	}
+
+	cout << "ИСХОДНЫЙ МАССИВ: " << endl << endl;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			cout << mas[i][j] << "  ";
+		}
+		cout << endl;
+	}
+
+	for (int i = 0, j = n - 1; i < n; i++, j--)
+	{
+		int sum = 0;
+		for (int k = i, l = j; (k >= 0) && (l >= 0); k--, l--)
+		{
+			sum += mas[k][l];
+		}
+		mas[i][j] = sum;
+	}
+
+	cout << endl << endl <<  "ПОЛУЧЕННЫЙ МАССИВ: " << endl << endl;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (mas[i][j]>9)
+				cout << mas[i][j] << " ";
+			else
+				cout << mas[i][j] << "  ";
+		}
+		cout << endl;
+	}
+
+	cout << endl << endl;
 	system("pause");
 	return 0;
 }
